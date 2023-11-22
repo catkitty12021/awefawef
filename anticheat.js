@@ -1,13 +1,18 @@
 let die = false;
 let p = 1e5 + 3;
+// some constant equal to 100003
 let lsw = (f, g) => localStorage[f] = g;
+// stores a pair in cookies
 let lsr = f => localStorage[f];
+// gets the value of the stored pair in cookies
 let e = (f, g) => document.getElementById(f).innerHTML += g;
+// changes the HTML elements
 let inv = x => {
     if (x % p == 0) return 0;
     for (let i = 1; i < p; i++)
         if ((x * i) % p == 1) return i;
 };
+// returns the modular inverse? idk, this might return nothing
 let jsf32 = (a, b, c, d) => {
         return () => {
             a |= 0;
