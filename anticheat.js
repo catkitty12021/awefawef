@@ -19,6 +19,7 @@ let jsf32 = (a, b, c, d) => {
             b |= 0;
             c |= 0;
             d |= 0;
+            // this shouldn't change anything??
             let t = a - (b << 27 | b >>> 5) | 0;
             a = b ^ (c << 17 | c >>> 15);
             b = c + d | 0;
@@ -35,27 +36,29 @@ let j = lsr("i"),
 if (j != undefined && k != undefined && l != undefined && m != undefined) {
     die = true;
     if ((inv(j) + inv(k) + inv(l)) % p != inv(m)) {
-        console.log("smh stop trying you failur");
+        console.log("smh stop trying you failur"); // checks if the numbers have been modified somehow
         localStorage.clear();
-    } else if (inv(j) * 1e10 + inv(k) * 1e5 + inv(l) + 2.7e6 > Date.now()) alert("You have not reached your cooldown yet! Please come back later.");
+    } else if (inv(j) * 1e10 + inv(k) * 1e5 + inv(l) + 2.7e6 > Date.now()) alert("You have not reached your cooldown yet! Please come back later."); // checks if cooldown has not yet passed
     else {
-        die = false;
+        die = false; // won't return error
         rngsus = jsf32(j, k, l, m);
     }
 }
-if (die) throw new Error("die you opportunistic little cannoli!!!! -wist");
-let t = Date.now(),
-    a = Math.floor(t / 1e10),
-    b = Math.floor((t % 1e10) / 1e5),
-    c = t % 1e5,
-    d = a + b + c;
+if (die) throw new Error("die you opportunistic little cannoli!!!! -wist"); // stops the program
+let t = Date.now() , // gets current date
+    a = Math.floor(t / 1e10), // cuts off the last 10 digits of the date (currently, the date is 13 digits long)
+    b = Math.floor((t % 1e10) / 1e5), // cuts off the first 3 digits and the last 5 digits
+    c = t % 1e5, // cuts off the first 8 digits
+    d = a + b + c; // adds them together
 lsw("i", inv(a));
 lsw("lost", inv(b));
 lsw("the", inv(c));
 lsw("game", inv(d));
+// inverts the numbers for some reason
 let arr = [],
     heads = 0,
     ac = 0;
+// weird coin flip code
 for (let i = 0; i < 100; i++) {
     if (rngsus() > 0.5) {
         arr.push("heads");
