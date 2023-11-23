@@ -15,6 +15,8 @@ d = "54576"
 ac = "5757"
 */
 
+const inputs = [170, 7057, 47349, 54576]
+
 let p = 1e5 + 3
 
 let inv = x => {
@@ -45,7 +47,7 @@ let jsf32 = (a, b, c, d) => {
 let codes = []
 let arr = [], heads = 0, ac = 0;
 for (let counter = 0; counter < 1000; counter++) {
-    let rngsus = jsf32(48825, 83239, 42678, inv(54576 + counter));
+    let rngsus = jsf32(inv(inputs[0]), inv(inputs[1]), inv(inputs[2]), inv(inputs[3] + counter));
     arr = []; heads = 0; ac = 0;
     for (let i = 0; i < 100; i++) {
         if (rngsus() > 0.5) {
