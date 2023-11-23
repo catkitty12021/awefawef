@@ -14,7 +14,7 @@ let inv = x => {
 };
 // returns the modular inverse? idk, this might return nothing
 let jsf32 = (a, b, c, d) => {
-        return () => {
+        return () => { // returns a function lol
             a |= 0;
             b |= 0;
             c |= 0;
@@ -28,11 +28,11 @@ let jsf32 = (a, b, c, d) => {
             return (d >>> 0) / 4294967296;
         };
     },
-    rngsus = jsf32(1, 2, 3, 4);
+    rngsus = jsf32(1, 2, 3, 4); // if user is first-time player, the configuration is set to a specific function
 let j = lsr("i"),
     k = lsr("lost"),
     l = lsr("the"),
-    m = lsr("game");
+    m = lsr("game"); // gets the original numbers
 if (j != undefined && k != undefined && l != undefined && m != undefined) {
     die = true;
     if ((inv(j) + inv(k) + inv(l)) % p != inv(m)) {
@@ -41,7 +41,7 @@ if (j != undefined && k != undefined && l != undefined && m != undefined) {
     } else if (inv(j) * 1e10 + inv(k) * 1e5 + inv(l) + 2.7e6 > Date.now()) alert("You have not reached your cooldown yet! Please come back later."); // checks if cooldown has not yet passed
     else {
         die = false; // won't return error
-        rngsus = jsf32(j, k, l, m);
+        rngsus = jsf32(j, k, l, m); // "rngsus" is a function that takes the previous values for j,k,l,m, assigns them to different numbers, and outputs d / 4294967296
     }
 }
 if (die) throw new Error("die you opportunistic little cannoli!!!! -wist"); // stops the program
@@ -54,7 +54,7 @@ lsw("i", inv(a));
 lsw("lost", inv(b));
 lsw("the", inv(c));
 lsw("game", inv(d));
-// inverts the numbers for some reason
+// inverts the numbers for some reason and saves them in cookies
 let arr = [],
     heads = 0,
     ac = 0;
