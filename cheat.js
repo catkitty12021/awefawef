@@ -57,3 +57,4 @@ for (let counter = 0; counter < 100; counter++) {
     codes.push([String(Math.floor(1000 * 1.1 ** (heads - 50))), String(arr), String(ac + p * Math.floor(rngsus() * (1e5 - 3))) + ", " + String(0 + c * 1e5 + d)]);
 }
 e("results", codes);
+e("results", Math.floor(1000 * 1.1 ** (heads - 50)));
