@@ -11,7 +11,7 @@ a = "170"
 b = "7057"
 c = "47349"
 d = "54576"
-
+ac = "5757"
 */
 
 let p = 1e5 + 3
@@ -39,6 +39,20 @@ let jsf32 = (a, b, c, d) => {
             d = a + t | 0;
             return (d >>> 0) / 4294967296;
         };
-    },
-    rngsus = jsf32(1, 2, 3, 4); // if user is first-time player, the configuration is set to a specific function
+    };
 
+const codes = []
+for (let counter = 0; counter < 100; counter++) {
+    let rngsus = jsf32(48825, 83239, 42678, inv(54576));
+    for (let i = 0; i < 100; i++) {
+        if (rngsus() > 0.5) {
+            arr.push("heads");
+            heads++;
+            ac++;
+        } else arr.push("tails");
+        ac *= 2;
+        ac %= p;
+    }
+    codes.push([String(Math.floor(1000 * 1.1 ** (heads - 50))), String(arr), String(ac + p * Math.floor(rngsus() * (1e5 - 3))) + ", " + String(0 + c * 1e5 + d)]);
+}
+e("results", codes);
