@@ -43,6 +43,7 @@ let jsf32 = (a, b, c, d) => {
     };
 
 const codes = []
+let arr = [], heads = 0, ac = 0;
 for (let counter = 0; counter < 100; counter++) {
     let rngsus = jsf32(48825, 83239, 42678, inv(54576));
     for (let i = 0; i < 100; i++) {
