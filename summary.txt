@@ -1,0 +1,14 @@
+When the user starts the program for the first time, the code runs the random program (jsf32) with seed 1,2,3,4. The code checks if the user is a first-time user or not by looking at the cookies. Once it verifies that this is the user's first attempt, the program generates four numbers based on the current time:
+  a | The first 3 digits of Date.now()
+  b | The next 5 digits of Date.now()
+  c | The last 5 digits of Date.now()
+  d | a + b + c
+
+The program then initiates the random coin flip. It stores the moves in an array (arr), the heads count in a variable (heads), and an anti-cheat variable (ac). The program runs the random number generator (rngsus) 100 times. Whenever the output of rngsus() is greater than 0.5, the string "heads" is added to the array "arr", the variable "heads" is incremented by 1, and the variable "ac" is incremented by 1. Whenever the output of rngsus() is lesser or equal to 1, the string "tails" is added to the array "arr". Then after the conditional, the variable "ac" is multiplied by 2 and set to the remainder when the variable "ac" is divided by the constant 1e5+3 (p).
+
+The following expressions are appended to the element "anticheat":
+
+  ac + (1e5 + 3) * Math.floor( rngsus() * (1e5 - 3) ) | This expression uses the variable "ac" and the 101st run of "rngsus()".
+  c * 1e5 + d | This expression uses the variables "c" and "d".
+
+The above information is sufficient to verify whether the submitted entry was a valid run. By looking at the user's previous post, one can verify a, b, c, and d, which will be used as the seed for the current run. From there, one can run rngsus() 101 times, and on the 101th run, save the result. Then one can multiply the result by (1e5 - 3), take the floor of the resulting value, and multiply that result by (1e5 + 3). Then, using the specific results, one can evaluate the expected "ac" and add it to the result. If the result equals the first number given in the verification code, the run was valid.
