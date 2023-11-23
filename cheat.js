@@ -46,6 +46,7 @@ const codes = []
 let arr = [], heads = 0, ac = 0;
 for (let counter = 0; counter < 100; counter++) {
     let rngsus = jsf32(48825, 83239, 42678, inv(54576 + counter));
+    arr = []; heads 0; ac = 0;
     for (let i = 0; i < 100; i++) {
         if (rngsus() > 0.5) {
             arr.push("heads");
@@ -55,7 +56,7 @@ for (let counter = 0; counter < 100; counter++) {
         ac *= 2;
         ac %= p;
     }
-    codes.push([String(Math.floor(1000 * 1.1 ** (heads - 50))), String(arr), String(ac + p * Math.floor(rngsus() * (1e5 - 3))) + ", " + String(0 + 47349 * 1e5 + 54546 + counter)]);
+    codes.push([String(Math.floor(1000 * 1.1 ** (heads - 50))), String(arr).replace(/heads/g, "1").replace(/tails/g, "0").replace(/,/g, ""), String(ac + p * Math.floor(rngsus() * (1e5 - 3))) + ", " + String(0 + 47349 * 1e5 + 54546 + counter)]);
 }
 e("results", codes);
 e("results", Math.floor(1000 * 1.1 ** (heads - 50)));
