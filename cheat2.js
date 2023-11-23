@@ -44,7 +44,7 @@ let jsf32 = (a, b, c, d) => {
         };
     };
 
-let codes = []
+let codes = ["0", "0", "0"]
 let arr = [], heads = 0, ac = 0;
 for (let counter = 0; counter < 1000; counter++) {
     let rngsus = jsf32(inv(inputs[0]), inv(inputs[1]), inv(inputs[2]), inv(inputs[3] + counter));
@@ -58,7 +58,7 @@ for (let counter = 0; counter < 1000; counter++) {
         ac *= 2;
         ac %= p;
     }
-    if codes == [] || codes[0] <= Math.floor(1000 * 1.1 ** (heads - 50)) {
+    if codes[0] <= Math.floor(1000 * 1.1 ** (heads - 50)) {
       codes = [String(Math.floor(1000 * 1.1 ** (heads - 50))), String(arr).replace(/heads/g, "1").replace(/tails/g, "0").replace(/,/g, ""), String(ac + p * Math.floor(rngsus() * (1e5 - 3))) + ", " + String(0 + 47349 * 1e5 + 54546 + counter)];
     }
 }
