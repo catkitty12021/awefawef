@@ -1,4 +1,4 @@
-// this is a test
+// this is just a test
 /*
 Points earned from run: 683
 
